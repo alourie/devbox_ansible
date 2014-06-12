@@ -13,11 +13,13 @@
   # additional variables
   vars:
     user: alourie
+    vim_base: vim-gtk
 
   # roles are a way to group tasks; they will run in the sequence determined here
   roles:
+    - Ansibles.apt
     - Ansibles.git
-    - Ansibles.vim vim_base=vim-gtk
-    - Ansibles.build-essential ansible_os_family=Debian
+    - Ansibles.vim
+    - { role: Ansibles.build-essential, ansible_os_family: 'Debian' }
     - Ansibles.python
     - devbox.oh-my-zsh
