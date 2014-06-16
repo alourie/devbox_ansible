@@ -23,3 +23,4 @@
     - { role: Ansibles.build-essential, ansible_os_family: 'Debian' }
     - Ansibles.python
     - devbox.oh-my-zsh
+    - { role: devbox.chrome, apt_file: /etc/apt/sources.list.d/google-chrome.list }
