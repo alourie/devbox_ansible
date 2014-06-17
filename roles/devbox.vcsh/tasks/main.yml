@@ -1,0 +1,11 @@
+---
+
+- name: install vcsh
+  apt: pkg=vcsh state=present
+
+- name: clone vcsh repos
+  command: vcsh clone {{item}}
+  sudo: false
+  with:
+        vim
+        zsh
