@@ -3,10 +3,22 @@
 - name: install vcsh
   apt: pkg=vcsh state=present
 
+- name: clear dotfiles
+  file: path=~{{user}}/{{item}} state=absent
+  with_items:
+     - .vimrc
+     - .zshrc
+     - .oh-my-zsh/themes/oh-my-solarized.zsh-theme
+     - .gitconfig
+     - .gitignore
+     - .dircolors
+
 - name: clone vcsh repos
   command: vcsh clone https://github.com/alourie/vcsh-{{item}}.git {{item}}
   sudo: false
   with_items:
      - vim
      - zsh
+     - dircolors
+     - git
 
