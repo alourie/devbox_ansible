@@ -24,3 +24,4 @@
     - devbox.oh-my-zsh
     - { role: devbox.chrome, apt_file: /etc/apt/sources.list.d/google-chrome.list }
     - devbox.vcsh
+    - devbox.custom_vim
