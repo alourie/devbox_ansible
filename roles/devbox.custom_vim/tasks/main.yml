@@ -1,0 +1,16 @@
+---
+
+- name: Install VAM
+  git: repo=git://github.com/MarcWeber/vim-addon-manager 
+       dest=~{{user}}/.vim/vim-addon-manager 
+       depth=1
+
+- name: Install YCP plugin
+  git: repo=git://github.com/Valloric/YouCompleteMe 
+       dest=~{{user}}/.vim/vim-addon-manager/github-Valloric-YouCompleteMe 
+
+- name: Install cmake
+  apt: pkg=cmake status=present
+
+- name: Build vim YCP plugin
+  command: ~{{user}}/.vim/vim-addon-manager/github-Valloric-YouCompleteMe/install.sh
