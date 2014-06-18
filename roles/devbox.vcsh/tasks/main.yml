@@ -4,8 +4,9 @@
   apt: pkg=vcsh state=present
 
 - name: clone vcsh repos
-  command: vcsh clone {{item}}
+  command: vcsh clone https://github.com/alourie/vcsh-{{item}}.git {{item}}
   sudo: false
-  with:
-        vim
-        zsh
+  with_items:
+     - vim
+     - zsh
+
