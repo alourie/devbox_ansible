@@ -2,15 +2,21 @@
 
 - name: Install VAM
   git: repo=git://github.com/MarcWeber/vim-addon-manager 
-       dest=~{{user}}/.vim/vim-addon-manager 
+       dest=~{{user}}/.vim/vim-addons/vim-addon-manager 
        depth=1
+  sudo: false
 
 - name: Install YCP plugin
   git: repo=git://github.com/Valloric/YouCompleteMe 
-       dest=~{{user}}/.vim/vim-addon-manager/github-Valloric-YouCompleteMe 
+       dest=~{{user}}/.vim/vim-addons/github-Valloric-YouCompleteMe 
+  sudo: false
 
-- name: Install cmake
-  apt: pkg=cmake status=present
+- name: Install cmake and ctags
+  apt: pkg={{item}} state=present
+  with_items:
+      - cmake
+      - ctags
 
 - name: Build vim YCP plugin
-  command: ~{{user}}/.vim/vim-addon-manager/github-Valloric-YouCompleteMe/install.sh
+  command: ./install.sh chdir=~{{user}}/.vim/vim-addons/github-Valloric-YouCompleteMe/
+  sudo: false
