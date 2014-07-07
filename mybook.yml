@@ -18,10 +18,10 @@
 
   # roles are a way to group tasks; they will run in the sequence determined here
   roles:
-    - Ansibles.apt
-    - Ansibles.vim
-    - Ansibles.build-essential
+    - { role: Ansibles.apt, apt_autoremove: no }
+    - { role: Ansibles.build-essential, ansible_os_family: Debian }
     - Ansibles.python
+    - Ansibles.vim
     - devbox.oh-my-zsh
     - devbox.chrome
     - devbox.vcsh

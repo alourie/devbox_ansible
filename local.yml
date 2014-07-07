@@ -32,4 +32,4 @@
             - devbox.oh-my-zsh
             - devbox.chrome
 
-      - include: mybook.yml
+  - include: mybook.yml
